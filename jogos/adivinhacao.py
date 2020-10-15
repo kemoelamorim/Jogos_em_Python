@@ -53,10 +53,13 @@ while tentativa == 0:
         tentativa = 0
     tentativas = tentativa
 
+# Pontuação
+pontuacao = 1000
+
 # Laço de tentativas
 rodada = 1
 while tentativas >= rodada:
-    print(f'Nível: {nivel} Rodada: {rodada}  Tentativas: {tentativas}')
+    print(f'Nível: {nivel} / Rodada: {rodada} / Tentativas: {tentativas}')
     # Entrada de Dados
     chute_str = input('Digite um numero: ')
     print('\nVocê digitou {}'.format(chute_str))
@@ -76,7 +79,9 @@ while tentativas >= rodada:
             print('Você errou, seu chute foi maior que o número secreto!\n')
         elif menor:
             print('Você errou, seu chute foi menor que o número secreto!\n')
-
+    pontos_pendidos = abs(chute - numero_secreto)
+    pontuacao = abs(pontuacao - pontos_pendidos)
+    print(f'Pontos: {pontuacao}')
     rodada += 1  # somando + uma tentativa
 
 # Printando Rodapé
