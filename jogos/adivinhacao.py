@@ -8,6 +8,7 @@ def cabecalho():
     *******************************
     ''')
 
+# Função escolhe o nível
 def nivel_do_jogo():
     print('''
     Escolha um nível de Dificuldade
@@ -22,10 +23,8 @@ def rodape():
     *******************************
     ''')
 
-
 # Printando Cabeçalho
 cabecalho()
-
 
 # Definindo número secreto
 numero_secreto = randrange(0, 100)
@@ -79,10 +78,12 @@ while tentativas >= rodada:
             print('Você errou, seu chute foi maior que o número secreto!\n')
         elif menor:
             print('Você errou, seu chute foi menor que o número secreto!\n')
+    
+    rodada += 1  # somando + uma tentativa
+    
     pontos_pendidos = abs(chute - numero_secreto)
     pontuacao = abs(pontuacao - pontos_pendidos)
     print(f'Pontos: {pontuacao}')
-    rodada += 1  # somando + uma tentativa
-
+    
 # Printando Rodapé
 rodape()
