@@ -8,6 +8,14 @@ def jogar_forca():
         *******************************
         ''')
 
+    # Função chama o rodapé
+    def rodape():
+        print('''
+        *******************************
+        ********* Fim do jogo *********
+        *******************************
+        ''')
+
     cabecalho()
 
     arquivo = open("jogos/palavras_secretas/palavras.txt","r")
@@ -21,7 +29,6 @@ def jogar_forca():
 
     posicao = random.randrange(0, len(palavras))
     palavra_secreta = palavras[posicao].upper()
-    print(palavra_secreta)
 
     acertou = False
     enforcou = False
@@ -38,7 +45,6 @@ def jogar_forca():
             for letra in palavra_secreta:
                 if chute == letra:
                     letras_acertadas[index] = letra
-                    print('Encontramos a letra "{}" na posição "{}"'.format(letra, index))
                 index += 1 
         else:
             erros += 1
@@ -46,10 +52,12 @@ def jogar_forca():
         acertou = '_' not in letras_acertadas
         print(letras_acertadas)
         
-        if acertou:
-            print('Você acertou!')
-        else:
-            print('Você errou!')
+    if acertou:
+        print('Você acertou!')
+        rodape()
+    else:
+        print('Você errou!')
+        rodape()
 
 if __name__ == '__main__':
     jogar_forca()
